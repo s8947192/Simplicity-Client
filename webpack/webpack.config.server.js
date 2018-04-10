@@ -1,15 +1,15 @@
-import path from 'path';
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import path from 'path'
+import webpack from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 // Paths
-const root = process.cwd();
-const src = path.join(root, 'src');
-const build = path.join(root, 'build');
-const universalSrc = path.join(src, 'universal');
-const serverSrc = path.join(src, 'server');
+const root = process.cwd()
+const src = path.join(root, 'src')
+const build = path.join(root, 'build')
+const universalSrc = path.join(src, 'universal')
+const serverSrc = path.join(src, 'server')
 
-const serverInclude = [serverSrc, universalSrc];
+const serverInclude = [serverSrc, universalSrc]
 
 export default {
   context: src,
@@ -78,4 +78,4 @@ export default {
       },
     ],
   },
-};
+}

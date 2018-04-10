@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 export default class Photos extends Component {
   static defaultProps = {
     photos: [],
-  };
+  }
 
   static propTypes = {
     requestPhotos: PropTypes.func.isRequired,
@@ -14,7 +14,7 @@ export default class Photos extends Component {
         thumbnailUrl: PropTypes.string.isRequired,
       }),
     ),
-  };
+  }
 
   componentWillMount() {
     this.props.requestPhotos();

@@ -1,14 +1,14 @@
 /* eslint global-require: 0 */
 /* eslint react/no-danger: 0 */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { renderToString } from 'react-dom/server';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { renderToString } from 'react-dom/server'
 
 const Html = (props) => {
-  const { initialState, rootComponent, assets, PROD, splitPoints } = props;
+  const { initialState, rootComponent, assets, PROD, splitPoints } = props
 
-  const { manifest, app, vendor } = assets || {};
+  const { manifest, app, vendor } = assets || {}
 
   return (
     <html lang="en">
@@ -28,13 +28,13 @@ const Html = (props) => {
         <script src={PROD ? app.js : '/static/app.js'} />
       </body>
     </html>
-  );
-};
+  )
+}
 
 Html.defaultProps = {
   assets: undefined,
   rootComponent: null,
-};
+}
 
 Html.propTypes = {
   initialState: PropTypes.string.isRequired,
@@ -46,6 +46,6 @@ Html.propTypes = {
     vendor: PropTypes.object,
   }),
   PROD: PropTypes.bool.isRequired,
-};
+}
 
-export default Html;
+export default Html

@@ -1,5 +1,5 @@
 {
-  "name": "univeral-hmr-ssr-react-redux-dokku",
+  "name": "Simplicity-Client",
   "version": "1.0.0",
   "description": "Univeral JS application utilizing Hot Module Reloading, Server Side Rendering, Code Splitting with React, Redux, React Router 4 and a heroku like deploy setup with Dokku.",
   "main": "index.js",
@@ -11,18 +11,6 @@
     "build:client": "NODE_ENV=production webpack --config ./webpack/client.babel.js",
     "lint": "./node_modules/.bin/eslint ./src"
   },
-  "keywords": [
-    "react",
-    "redux",
-    "hot-module-reloading",
-    "server-side-rendering",
-    "hmr",
-    "ssr",
-    "code-splitting",
-    "webpack"
-  ],
-  "author": "Alexander J Ray <alexjamesray@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
     "autoprefixer": "^6.7.7",

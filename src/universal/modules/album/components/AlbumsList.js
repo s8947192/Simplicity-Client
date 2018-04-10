@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default class AlbumsList extends Component {
   static defaultProps = {
     albums: [],
-  };
+  }
 
   static propTypes = {
     requestAlbums: PropTypes.func.isRequired,
@@ -15,7 +15,7 @@ export default class AlbumsList extends Component {
         title: PropTypes.string.isRequired,
       }),
     ),
-  };
+  }
 
   constructor(props) {
     super(props);

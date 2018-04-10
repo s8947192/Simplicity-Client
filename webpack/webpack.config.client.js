@@ -1,26 +1,26 @@
-import path from 'path';
-import webpack from 'webpack';
+import path from 'path'
+import webpack from 'webpack'
 
-import AssetsPlugin from 'assets-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import AssetsPlugin from 'assets-webpack-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
-const root = process.cwd();
-const src = path.join(root, 'src');
-const build = path.join(root, 'build');
+const root = process.cwd()
+const src = path.join(root, 'src')
+const build = path.join(root, 'build')
 
-const clientSrc = path.join(src, 'client');
-const universalSrc = path.join(src, 'universal');
+const clientSrc = path.join(src, 'client')
+const universalSrc = path.join(src, 'universal')
 
-const clientInclude = [clientSrc, universalSrc];
+const clientInclude = [clientSrc, universalSrc]
 
 // Cache vendor && client javascript on CDN...
-const vendor = ['react', 'react-dom', 'react-router', 'react-redux', 'redux'];
+const vendor = ['react', 'react-dom', 'react-router', 'react-redux', 'redux']
 
 export default {
   context: src,
   entry: {
-    app: ['babel-polyfill/dist/polyfill.js', './client/client.jsx'],
+    app: ['babel-polyfill/dist/polyfill.js', './client/client.js'],
     vendor,
   },
   output: {
@@ -102,4 +102,4 @@ export default {
       },
     ],
   },
-};
+}

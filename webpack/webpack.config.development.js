@@ -1,13 +1,13 @@
-import path from 'path';
-import webpack from 'webpack';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import path from 'path'
+import webpack from 'webpack'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
-const root = process.cwd();
-const src = path.join(root, 'src');
-const clientSrc = path.join(src, 'client');
-const universalSrc = path.join(src, 'universal');
+const root = process.cwd()
+const src = path.join(root, 'src')
+const clientSrc = path.join(src, 'client')
+const universalSrc = path.join(src, 'universal')
 
-const clientInclude = [clientSrc, universalSrc];
+const clientInclude = [clientSrc, universalSrc]
 
 export default {
   devtool: 'eval',
@@ -17,7 +17,7 @@ export default {
       'babel-polyfill/dist/polyfill.js',
       'react-hot-loader/patch',
       'webpack-hot-middleware/client?noInfo=false',
-      './client/client.jsx',
+      './client/client.js',
     ],
   },
   output: {
@@ -92,4 +92,4 @@ export default {
       },
     ],
   },
-};
+}

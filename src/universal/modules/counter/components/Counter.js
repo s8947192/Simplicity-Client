@@ -9,15 +9,15 @@ export default class Counter extends Component {
     incrementCount: PropTypes.func.isRequired,
     decrementCount: PropTypes.func.isRequired,
     count: PropTypes.number.isRequired,
-  };
+  }
 
   handleIncrementClick = () => {
     this.props.incrementCount();
-  };
+  }
 
   handleDecrementClick = () => {
     this.props.decrementCount();
-  };
+  }
 
   render() {
     const { count } = this.props;
