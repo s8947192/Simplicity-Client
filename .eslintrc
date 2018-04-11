@@ -8,7 +8,6 @@
     "redux-saga"
   ],
   "rules": {
-    "max-len": [2, 120],
   },
   "settings": {
     "import/resolver": {
