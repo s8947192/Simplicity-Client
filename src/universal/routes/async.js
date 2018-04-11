@@ -12,10 +12,7 @@ function asyncComponent(chunkName, getComponent) {
     }
 
     mounted = false
-
-    state = {
-      LoadedComponent: AsyncComponent.Component,
-    }
+    state = { LoadedComponent: AsyncComponent.Component }
 
     componentWillMount() {
       if (this.state.LoadedComponent === null) {
@@ -27,13 +24,9 @@ function asyncComponent(chunkName, getComponent) {
       }
     }
 
-    componentDidMount() {
-      this.mounted = true
-    }
+    componentDidMount() { this.mounted = true }
+    componentWillUnmount() { this.mounted = false }
 
-    componentWillUnmount() {
-      this.mounted = false
-    }
     render() {
       const { LoadedComponent } = this.state
       if (LoadedComponent) {
@@ -45,6 +38,7 @@ function asyncComponent(chunkName, getComponent) {
 }
 
 export const Home = asyncComponent('Home', () => System.import('components/Home/Home'))
+// export const Login = asyncComponent('Login', () => System.import('components/Login/Login'))
 export const Counter = asyncComponent('Counter', () => System.import('modules/counter/containers/CounterContainer'))
 export const Albums = asyncComponent('Albums', () => System.import('modules/album/components/Albums'))
 export const AlbumsList = asyncComponent('AlbumsList', () =>

@@ -14,7 +14,7 @@ const Html = (props) => {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <title>title</title>
+        <title>Simplicity</title>
         {PROD && <link rel="stylesheet" href="/static/prerender.css" type="text/css" />}
       </head>
       <body>
