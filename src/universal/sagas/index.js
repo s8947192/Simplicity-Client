@@ -1,13 +1,9 @@
-import { all, fork } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects'
 
-import watchRequestAuth from 'sagas/auth';
-import watchRequestAlbums from 'sagas/albums';
-import watchRequestPhotos from 'sagas/photos';
+import watchRequestAuth from 'sagas/auth'
 
 export default function* rootSaga() {
   yield all([
-    fork(watchRequestAuth),
-    fork(watchRequestAlbums),
-    fork(watchRequestPhotos),
-  ]);
+    fork(watchRequestAuth)
+  ])
 }

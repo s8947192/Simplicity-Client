@@ -1,23 +1,20 @@
-/* eslint no-console: 0 */
+import { takeLatest, call, put } from 'redux-saga/effects'
 
-// import { takeLatest, call, put, select } from 'redux-saga/effects'
-// import { actions, types, selectors } from 'modules/album/reducers'
-// import * as api from 'api'
-//
-// function* requestAlbums() {
-//   const cachedAlbums = yield select(selectors.getAlbums)
-//   if (cachedAlbums.length === 0) {
-//     try {
-//       const response = yield call(api.get, '/albums')
-//       yield put(actions.receiveAlbums(response.data))
-//     } catch (error) {
-//       console.log('Albums request failed')
-//     }
-//   } else {
-//     console.log('Albums already in store')
-//   }
-// }
+import { authRequest } from 'api/auth'
+import { LOGIN } from 'actions/auth'
+import { loginPending, loginRejected } from 'actions/auth'
+
+function* requestLogin({ email, password }) {
+  try {
+    yield put(loginPending())
+    const user = yield call(authRequest, email, password)
+    console.log(user)
+  } catch (e) {
+    console.log({ e })
+    yield put(loginRejected(e.response.data.error.message))
+  }
+}
 
 export default function* watchRequestAuth() {
-  // yield takeLatest(types.ALBUMS_REQUEST, requestAlbums)
+  yield takeLatest(LOGIN, requestLogin)
 }

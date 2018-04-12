@@ -11,35 +11,9 @@
   flex: 1;
   max-width: 550px;
   flex-direction: column;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0px 3px 43px -5px rgba(0,0,0,0.05);
-}
-
-.banner {
-  background-color: #bbc7bf;
-  display: flex;
-  flex: 1;
-  max-width: 287px;
-  margin: -6px 0;
-  position: relative;
-  border-radius: 0 4px 4px 0;
-  background-image: url('./assets/banner.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.banner::before {
-  content: '';
-  width: 0;
-  height: 0;
-  border-top: 3px solid transparent;
-  border-left: 3px solid transparent;
-  border-bottom: 3px solid #bbc7bf;
-  border-right: 3px solid #bbc7bf;
-  position: absolute;
-  top: 0;
-  left: -6px;
 }
 
 .nav {
@@ -73,7 +47,6 @@
 
 .elWrapper {
   display: flex;
-  flex: 1;
   flex-direction: column;
   margin: 0 20px 20px 20px;
 }
@@ -116,7 +89,22 @@
 .input:focus {
   border: none;
   background-color: white;
+  color: #747474;
   box-shadow: 0px 0px 5px 0px rgba(77,141,201,0.58);
+}
+
+.inputError {
+  font-size: 13px;
+  margin-top: 11px;
+  margin-left: 20px;
+  color: #fa6a68;
+}
+
+.inputSuccess {
+  font-size: 13px;
+  margin-top: 11px;
+  margin-left: 20px;
+  color: green;
 }
 
 .accessCheckContainer {
@@ -207,25 +195,43 @@
 
 .signInButtonContainer {
   display: flex;
-  margin: 0px 0 23px 0;
+  margin: 10px 0 23px 0;
   align-items: center;
   justify-content: center;
 }
 
 .signInButton {
+  font-size: 13px;
   text-transform: uppercase;
-  font-size: 14px;
-  background-color: #6ec4fd;
-  padding: 13px 57px;
+  background-color: #a7a7a7;
+  padding: 10px 20px;
   border-radius: 30px;
   color: white;
+  cursor: not-allowed;
 }
 
-.signInButton:hover {
+.valid {
+  background-color: #6dc4fd;
   cursor: pointer;
+}
+
+.valid:hover {
   background-color: #fa6a68;
 }
 
 .disabled {
   background-color: #899196;
+}
+
+.errorContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorMessage {
+  color: #e24f4c;
+  font-size: 14px;
+  margin-right: 20px;
 }
