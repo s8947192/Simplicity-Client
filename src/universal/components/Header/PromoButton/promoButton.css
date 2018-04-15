@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
   padding: 13px 40px;
-  background-color: #e24f4c;
+  background-color: #4d8dc9;
   border-radius: 4px;
-  border: 1px solid #ca4442;
-  box-shadow: 0px 2px 0px 0px #d54a4a;
+  border: 2px solid #659fd6;
+  box-shadow: 0px 2px 0px 0px #3c70a0;
   min-width: 80px;
 }

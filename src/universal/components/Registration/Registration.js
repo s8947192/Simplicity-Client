@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 
-import styles from './login.css'
+import styles from './registration.css'
 
 import Auth from 'layouts/Auth/Auth'
 import AuthInput from 'components/UI/AuthInput/AuthInput'
 import AuthButton from 'components/UI/AuthButton/AuthButton'
 import AuthAccessControl from 'components/UI/AuthAccessControl/AuthAccessControl'
 
-export default class Login extends Component {
+export default class Registration extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -73,10 +73,6 @@ export default class Login extends Component {
 
   render() {
     const {
-      isLoginPending,
-      loginError
-    } = this.props
-    const {
       formValid,
       formErrors,
       emailValid,
@@ -85,37 +81,6 @@ export default class Login extends Component {
     return (
       <Auth>
         <div className={styles.title}>Sign In</div>
-        <AuthInput
-          name='email'
-          label='Email'
-          placeholder='enter your email address'
-          value={this.state.email}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          error={formErrors.email}
-          isInFocus={this.state.focus === 'email'}
-        />
-        <AuthInput
-          name='password'
-          label='Password'
-          placeholder='enter your password'
-          value={this.state.password}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          error={formErrors.password}
-          isInFocus={this.state.focus === 'password'}
-        />
-        <AuthAccessControl />
-        <AuthButton
-          name='login'
-          isPending={isLoginPending}
-          isActive={formValid}
-          onClick={this.onLogin}
-          error={loginError}
-          errorLabel='try login again'
-        />
       </Auth>
     )
   }

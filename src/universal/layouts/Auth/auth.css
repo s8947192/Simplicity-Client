@@ -28,14 +28,15 @@
   height: 100%;
   text-transform: uppercase;
   color: #899196;
-  font-size: 13px;
+  font-size: 12px;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .active {
-  background-color: #4d8dc9;
-  color: #bfddf2;
+  background-color: #ec8282;
+  color: #9e5656;
 }
 
 .title {

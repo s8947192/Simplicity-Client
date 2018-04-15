@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './authPreloader.css'
 
-const AuthPreloader = () => (
+export default () => (
   <svg version='1.1' id='loader-1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px'
    width='40px' height='40px' viewBox='0 0 40 40'>
   <path
@@ -35,5 +35,3 @@ const AuthPreloader = () => (
     </path>
   </svg>
 )
-
-export default AuthPreloader
