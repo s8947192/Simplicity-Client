@@ -20,12 +20,7 @@
   padding: 0;
   margin: 0;
   opacity: 0;
-}
-
-.checkbox + label {
-  position: relative;
   cursor: pointer;
-  padding: 0;
 }
 
 .checkbox + label:before {
@@ -82,4 +77,19 @@
 .labelDesc {
   color: #979d9f;
   font-size: 13px;
+}
+
+.linkWrapper {
+  display: flex;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.linkLabel {
+  color: #7c878c;
+}
+
+.link {
+  margin-left: 5px;
+  color: #ec8281;
 }

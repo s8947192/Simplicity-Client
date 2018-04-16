@@ -5,6 +5,7 @@ import cn from 'classnames'
 import styles from './login.css'
 
 import Auth from 'layouts/Auth/Auth'
+import AuthTitle from 'components/UI/AuthTitle/AuthTitle'
 import AuthInput from 'components/UI/AuthInput/AuthInput'
 import AuthButton from 'components/UI/AuthButton/AuthButton'
 import AuthAccessControl from 'components/UI/AuthAccessControl/AuthAccessControl'
@@ -84,7 +85,7 @@ export default class Login extends Component {
     } = this.state
     return (
       <Auth>
-        <div className={styles.title}>Sign In</div>
+        <AuthTitle value='Sign In' />
         <AuthInput
           name='email'
           label='Email'
@@ -107,7 +108,10 @@ export default class Login extends Component {
           error={formErrors.password}
           isInFocus={this.state.focus === 'password'}
         />
-        <AuthAccessControl />
+        <AuthAccessControl
+          title='Keep me sign in'
+          desc='if checked, current session is not going to be saved'
+        />
         <AuthButton
           name='login'
           isPending={isLoginPending}

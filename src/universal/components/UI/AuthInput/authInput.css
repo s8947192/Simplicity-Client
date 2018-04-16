@@ -59,3 +59,15 @@
   margin-left: 20px;
   color: green;
 }
+
+.error {
+  background-color: #ffb5b6;
+  border: 1px solid #f6aaab;
+  color: #aa6b7a;
+}
+
+.success {
+  background-color: #b0fecf;
+  border: 1px solid #abf4ae;
+  color: #71a786;
+}

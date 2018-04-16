@@ -5,6 +5,7 @@ import cn from 'classnames'
 import styles from './registration.css'
 
 import Auth from 'layouts/Auth/Auth'
+import AuthTitle from 'components/UI/AuthTitle/AuthTitle'
 import AuthInput from 'components/UI/AuthInput/AuthInput'
 import AuthButton from 'components/UI/AuthButton/AuthButton'
 import AuthAccessControl from 'components/UI/AuthAccessControl/AuthAccessControl'
@@ -16,9 +17,12 @@ export default class Registration extends Component {
       focus: '',
       email: '',
       password: '',
-      formErrors: { email: '', password: '' },
+      passwordRepeat: '',
+      formErrors: { email: '', password: '', passwordRepeat: '' },
       emailValid: false,
       passwordValid: false,
+      passwordRepeatValid: false,
+      termsAccepted: false,
       formValid: false
     }
   }
@@ -38,10 +42,11 @@ export default class Registration extends Component {
     this.setState({[name]: value}, () => { this.validateField(name, value) })
   }
 
-  validateField(fieldName, value) {
+  validateField = (fieldName, value) => {
     let fieldValidationErrors = this.state.formErrors
     let emailValid = this.state.emailValid
     let passwordValid = this.state.passwordValid
+    let passwordRepeatValid = this.state.passwordRepeatValid
 
     switch(fieldName) {
       case 'email':
@@ -51,6 +56,14 @@ export default class Registration extends Component {
       case 'password':
         passwordValid = value.length >= 6
         fieldValidationErrors.password = passwordValid ? '': 'password is too short'
+        passwordRepeatValid = value === this.state.passwordRepeat
+        fieldValidationErrors.passwordRepeat = passwordRepeatValid ? '': 'passwords don\'t match'
+        break
+      case 'passwordRepeat':
+        const ruleLength = value.length >= 6
+        const ruleMatch = value === this.state.password
+        passwordRepeatValid = ruleLength && ruleMatch
+        fieldValidationErrors.passwordRepeat = !ruleMatch ? 'passwords don\'t match' : !ruleLength ? 'password is too short' : ''
         break
       default:
         break
@@ -58,12 +71,22 @@ export default class Registration extends Component {
     this.setState({
       formErrors: fieldValidationErrors,
       emailValid: emailValid,
-      passwordValid: passwordValid
+      passwordValid: passwordValid,
+      passwordRepeatValid: passwordRepeatValid
     }, this.validateForm)
   }
 
-  validateForm() {
-    this.setState({formValid: this.state.emailValid && this.state.passwordValid})
+  validateForm = () => {
+    const { emailValid, passwordValid, passwordRepeatValid, termsAccepted } = this.state
+    this.setState({
+      formValid: emailValid && passwordValid && passwordRepeatValid && termsAccepted
+    })
+  }
+
+  toggleCheck = () => {
+    this.setState({
+      termsAccepted: !this.state.termsAccepted
+    }, this.validateForm)
   }
 
   onLogin = () => {
@@ -76,11 +99,61 @@ export default class Registration extends Component {
       formValid,
       formErrors,
       emailValid,
-      passwordValid
+      passwordValid,
+      email,
+      password,
+      passwordRepeat,
+      focus
     } = this.state
     return (
       <Auth>
-        <div className={styles.title}>Sign In</div>
+        <AuthTitle value='Sign Up' />
+        <AuthInput
+          name='email'
+          label='Email'
+          placeholder='enter your email address'
+          value={email}
+          onChange={this.onChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          error={email && formErrors.email}
+          isInFocus={focus === 'email'}
+        />
+        <AuthInput
+          name='password'
+          label='Password'
+          placeholder='enter new password'
+          value={password}
+          onChange={this.onChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          error={password && formErrors.password}
+          isInFocus={focus === 'password'}
+        />
+        <AuthInput
+          name='passwordRepeat'
+          placeholder='repeat password'
+          value={passwordRepeat}
+          onChange={this.onChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          error={passwordRepeat && formErrors.passwordRepeat}
+          isInFocus={focus === 'passwordRepeat'}
+        />
+        <AuthAccessControl
+          onCheck={this.toggleCheck}
+          title='Terms and  conditions'
+          desc='By signing up, you are accepting Simplicity terms and conditions'
+          link='terms'
+        />
+        <AuthButton
+          name='register'
+          isPending={false}
+          isActive={formValid}
+          onClick={this.onLogin}
+          error={'some error'}
+          errorLabel='try register again'
+        />
       </Auth>
     )
   }

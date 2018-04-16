@@ -1,9 +1,9 @@
 import React from 'react'
 
-const EmailSVG = ({ isInFocus, className }) => (
+const EmailSVG = ({ color, className }) => (
   <svg className={className} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 455 455' width='16px' height='16px'>
    <path
-     fill={isInFocus ? '#488dc8' : '#b0b3ba'}
+     fill={color}
      d={
        `
          M416.296,38.642c-51.523-51.523-135.058-51.523-186.581,0c-41.222,41.222-49.457,102.934-24.718,152.35L0.183,395.811
