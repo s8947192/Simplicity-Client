@@ -28,9 +28,9 @@ export default class Registration extends Component {
   }
 
   static propTypes = {
-    login: PropTypes.func.isRequired,
-    isLoginPending: PropTypes.bool.isRequired,
-    loginError: PropTypes.string
+    registrate: PropTypes.func.isRequired,
+    isRegistrationPending: PropTypes.bool.isRequired,
+    registrationError: PropTypes.string
   }
 
   onBlur = () => this.setState({ focus: '' })
@@ -89,12 +89,16 @@ export default class Registration extends Component {
     }, this.validateForm)
   }
 
-  onLogin = () => {
+  onRegister = () => {
     const { email, password } = this.state
-    this.props.login(email, password)
+    this.props.registrate(email, password)
   }
 
   render() {
+    const {
+      isRegistrationPending,
+      registrationError
+    } = this.props
     const {
       formValid,
       formErrors,
@@ -148,10 +152,10 @@ export default class Registration extends Component {
         />
         <AuthButton
           name='register'
-          isPending={false}
+          isPending={isRegistrationPending}
           isActive={formValid}
-          onClick={this.onLogin}
-          error={'some error'}
+          onClick={this.onRegister}
+          error={registrationError}
           errorLabel='try register again'
         />
       </Auth>

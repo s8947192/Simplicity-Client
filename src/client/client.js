@@ -17,7 +17,7 @@ import RouteMap from 'universal/routes/RouteMap'
 const preloadedState = window.__INITIAL_STATE__
 const splitPoints = window.__SPLIT_POINTS__ || []
 
-const history = createHistory()
+export const history = createHistory()
 const store = createStore(history, preloadedState)
 
 store.rootTask = store.runSaga(rootSaga)

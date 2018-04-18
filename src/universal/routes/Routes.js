@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Route } from 'react-router'
+import { Route, Switch } from 'react-router'
 
 import AppContainer from 'containers/App/AppContainer'
 import RouteMap from './RouteMap'
@@ -9,14 +9,10 @@ const Routes = props => {
   const { location } = props
   return (
     <AppContainer>
-      <div>
-        <Route exact location={location} path='/' component={RouteMap.Home} />
-        <Route exact location={location} path='/login' component={RouteMap.Login} />
-        <Route exact location={location} path='/registration' component={RouteMap.Registration} />
-        <Route path='/albums' component={RouteMap.Albums} />
-        <Route exact location={location} path='/albums' component={RouteMap.AlbumsList} />
-        <Route path='/albums/:albumId' component={RouteMap.Photos} />
-      </div>
+      <Switch>
+        <Route path='/user/:userId' component={RouteMap.Profile} />
+        <Route path='/' component={RouteMap.Home} />
+      </Switch>
     </AppContainer>
   )
 }

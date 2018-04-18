@@ -1,16 +1,16 @@
 import { connect } from 'react-redux'
 
 import Registration from 'components/Registration/Registration'
-// import { login } from 'actions/auth'
-// import { getIsLoginPending, getLoginError } from 'selectors/auth'
+import { registration } from 'actions/auth'
+import { getIsRegistrationPending, getRegistrationError } from 'selectors/auth'
 
-// const mapStateToProps = state => ({
-//   isLoginPending: getIsLoginPending(state),
-//   loginError: getLoginError(state)
-// })
-//
-// const mapDispatchToProps = dispatch => ({
-//   login: (email, password) => dispatch(login(email, password))
-// })
+const mapStateToProps = state => ({
+  isRegistrationPending: getIsRegistrationPending(state),
+  registrationError: getRegistrationError(state)
+})
 
-export default connect(null, null)(Registration)
+const mapDispatchToProps = dispatch => ({
+  registrate: (email, password) => dispatch(registration(email, password))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registration)

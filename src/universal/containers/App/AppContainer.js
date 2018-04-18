@@ -1,11 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import App from 'components/App/App';
+import { connect } from 'react-redux'
 
-const AppContainer = props => <App {...props} />;
+import App from 'components/App/App'
+import { getUser } from 'selectors/auth'
+import { reAuthenticate } from 'actions/auth'
 
-AppContainer.propTypes = {
-  children: PropTypes.element.isRequired,
-};
+const mapStateToProps = state => ({
+  user: getUser(state)
+})
 
-export default AppContainer;
+const mapDispatchToProps = dispatch => ({
+  reAuthenticate: () => dispatch(reAuthenticate())
+})
+
+export default connect(mapStateToProps, null)(App)

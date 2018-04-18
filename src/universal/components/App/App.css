@@ -7,18 +7,15 @@ body {
   padding: 0;
   font-family: 'Arvo', Arial, Helvetica, Sans-serif;
   background-color: #faf2ef;
+
+  /* background: linear-gradient(179deg, #4f6d83, #cc6161);
+  background-size: 100% 100%; */
+
 }
 
 h2 {
   font-size: 2em;
   line-height: 1.5em;
-}
-
-p, li, ul, ol {
-  font-family: 'Raleway';
-  color: white;
-  font-size: 20px;
-  line-height: 1.25em;
 }
 
 .app {
