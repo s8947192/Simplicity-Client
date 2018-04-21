@@ -65,6 +65,16 @@ export default {
   module: {
     loaders: [
       {
+        test: /favicon\.ico$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 1,
+            name: '[name].[ext]'
+          }
+        }
+      },
+      {
         test: /\.(png|j|jpeg|gif|svg|woff|woff2)$/,
         use: {
           loader: 'url-loader',

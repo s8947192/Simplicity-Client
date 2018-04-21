@@ -15,6 +15,7 @@ const Html = (props) => {
       <head>
         <meta charSet="utf-8" />
         <title>Simplicity</title>
+        <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
         {PROD && <link rel="stylesheet" href="/static/prerender.css" type="text/css" />}
       </head>
       <body>
